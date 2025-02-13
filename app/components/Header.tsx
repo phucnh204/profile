@@ -15,9 +15,9 @@ const Header = () => {
 
   return (
     <div
-      className="w-11/12 max-w-3xl text-center mx-auto
+      className="w-11/12 max-w-3xl text-center mx-auto mt-28
        flex flex-col items-center justify-center gap-4
-       h-screen
+       
     "
     >
       <div>

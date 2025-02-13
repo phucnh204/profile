@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import logo from "@/assets/public/logo.png";
 import arrow_icon from "@/assets/public/arrow-up-right.png";
 import moon_icon from "@/assets/public/moon-icon-8.png";
 import menu_icon from "@/assets/public/menu-icon.png";
 import close_black from "@/assets/public/close-black.png";
 const NavBar = () => {
+  const [isScroll, setIsScroll] = useState(false);
   const sideMenuRef = useRef<HTMLUListElement>(null);
 
   const openMenu = () => {
@@ -19,9 +20,24 @@ const NavBar = () => {
       sideMenuRef.current.style.transform = "translate(16rem)";
     }
   };
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (scrollY > 50) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    });
+  }, []);
   return (
-    <>
-      <nav className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+    <div>
+      <nav
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%]
+         py-4 flex items-center justify-between z-50
+        ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""}
+         `}
+      >
         <a href="#top" className="flex items-center justify-center ">
           {/* <Image
             src={logo}
@@ -37,7 +53,11 @@ const NavBar = () => {
           </h1>
         </a>
 
-        <ul className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-90">
+        <ul
+          className={`hidden md:flex items-center gap-6 lg:gap-8
+           rounded-full px-12 py-3 ${
+             isScroll ? "" : "bg-white shadow-sm bg-opacity-50"}`}
+        >
           <li>
             <a href="#top">Home</a>
           </li>
@@ -109,7 +129,7 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-    </>
+    </div>
   );
 };
 
