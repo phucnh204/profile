@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 // import logo from "@/assets/public/logo.png";
 import arrow_icon from "@/assets/public/arrow-up-right.png";
 import arrow_icon_white from "@/assets/public/up-arrow_4509888.png";
@@ -21,7 +21,7 @@ const NavBar = ({
 }: //  setActiveSection,
 NavBarProps) => {
   const [isScroll, setIsScroll] = useState(false);
-  const sideMenuRef = useRef<HTMLUListElement>(null);
+  // const sideMenuRef = useRef<HTMLUListElement>(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -152,7 +152,11 @@ NavBarProps) => {
             />
           </a>
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={isDarkMode ? menu_icon2: menu_icon} alt="" className="w-10" />
+            <Image
+              src={isDarkMode ? menu_icon2 : menu_icon}
+              alt=""
+              className="w-10"
+            />
           </button>
         </div>
 
