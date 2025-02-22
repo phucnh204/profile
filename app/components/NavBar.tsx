@@ -7,6 +7,7 @@ import arrow_icon_white from "@/assets/public/up-arrow_4509888.png";
 import moon_icon from "@/assets/public/moon_14092746.png";
 import sun_icon from "@/assets/public/sun.png";
 import menu_icon from "@/assets/public/menu-50.png";
+import menu_icon2 from "@/assets/public/menu-51.png";
 import close_black from "@/assets/public/close.png";
 
 interface NavBarProps {
@@ -22,26 +23,31 @@ NavBarProps) => {
   const [isScroll, setIsScroll] = useState(false);
   const sideMenuRef = useRef<HTMLUListElement>(null);
 
-  const openMenu = () => {
-    if (sideMenuRef.current) {
-      sideMenuRef.current.style.transform = "translate(-16rem)";
-    }
-  };
-  const closeMenu = () => {
-    if (sideMenuRef.current) {
-      sideMenuRef.current.style.transform = "translate(16rem)";
-    }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const openMenu = () => setIsMenuOpen(true);
+  const closeMenu = () => setIsMenuOpen(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (scrollY > 50) {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
         setIsScroll(true);
       } else {
         setIsScroll(false);
       }
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isMenuOpen]);
+
   return (
     <div>
       <nav
@@ -146,17 +152,16 @@ NavBarProps) => {
             />
           </a>
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={menu_icon} alt="" className="w-10" />
+            <Image src={isDarkMode ? menu_icon2: menu_icon} alt="" className="w-10" />
           </button>
         </div>
 
         {/* Mobile menu */}
         <ul
-          ref={sideMenuRef}
-          className={`flex md:hidden flex-col gap-6 py-20 px-10 fixed
-    top-0 bottom-0 -right-64 w-64 z-50 h-screen 
+          className={`fixed top-0 bottom-0 right-0 w-64 z-50 h-screen 
     bg-gradient-to-r from-gray-50 to-gray-100 shadow-lg rounded-l-2xl
-    transition-transform duration-500 ease-in-out`}
+    transition-all duration-500 ease-in-out 
+    ${isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
         >
           {/* Nút đóng menu */}
           <button
