@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "framer-motion": "^12.4.2",
     "next": "15.1.7",
     "profile": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-toastify": "^11.0.3",
     "swiper": "^11.2.3"
   },
   "devDependencies": {

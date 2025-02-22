@@ -76,7 +76,7 @@ export default function Home() {
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <Contact />
+        <Contact isDarkMode={isDarkMode} />
       </motion.div>
     </div>
   );

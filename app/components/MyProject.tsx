@@ -46,38 +46,53 @@ const MyProject = ({ isDarkMode }: Props) => {
         /* Hiển thị dạng Grid nếu <= 4 sản phẩm */
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {myProject.map((project, index) => (
-            <div
+            <a
               key={index}
-              className={`relative rounded-xl overflow-hidden group shadow-md transition-all duration-500
-                          hover:shadow-xl ${
-                            isDarkMode ? "bg-gray-800" : "bg-white"
-                          }`}
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block overflow-hidden rounded-xl shadow-md transition-all duration-500
+        hover:shadow-2xl hover:scale-[1.03]"
             >
-              <Image
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-
-              {/* Overlay */}
               <div
-                className={`absolute inset-0 flex items-center justify-center p-4 transition-all duration-500
-                            bg-opacity-40 group-hover:bg-opacity-80
-                            ${isDarkMode ? "bg-gray-900" : "bg-black"}`}
+                className={`relative rounded-xl overflow-hidden transition-all duration-500
+          ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
               >
-                <div className="text-center text-white">
-                  <h2 className="text-lg sm:text-xl font-semibold">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-[250px] object-cover transition-transform duration-500
+            group-hover:scale-105"
+                />
+
+                {/* Overlay */}
+                <div
+                  className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-500
+            bg-gradient-to-t from-black/80 via-black/40 to-transparent
+            ${isDarkMode ? "bg-gray-900/80" : "bg-black/60"}
+            group-hover:bg-opacity-100`}
+                >
+                  <h2 className="text-lg sm:text-xl font-semibold text-white">
                     {project.title}
                   </h2>
-                  <p className="text-sm sm:text-base opacity-80">
+                  <p className="text-sm sm:text-base opacity-80 text-gray-300 text-center">
                     {project.description}
                   </p>
-                  <p className="text-xs sm:text-sm mt-2 text-gray-300">
+                  <p className="text-xs sm:text-sm mt-2 text-gray-400">
                     ⏳ {project.time}
                   </p>
+
+                  {/* Button GitHub */}
+                  <button
+                    className="mt-3 px-4 py-2 text-sm sm:text-base font-semibold
+              bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg
+              hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  >
+                    View on GitHub 🚀
+                  </button>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       ) : (
@@ -85,6 +100,8 @@ const MyProject = ({ isDarkMode }: Props) => {
         <Swiper
           slidesPerView={1}
           spaceBetween={20}
+          loop={true} // Cho phép slider chạy liên tục
+          fadeEffect={{ crossFade: true }} // Hiệu ứng fade mượt
           breakpoints={{
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
@@ -92,41 +109,52 @@ const MyProject = ({ isDarkMode }: Props) => {
           }}
           navigation={true}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           modules={[Navigation, Pagination, Autoplay]}
           className="mySwiper"
         >
           {myProject.map((project, index) => (
             <SwiperSlide key={index}>
-              <div
-                className={`relative rounded-xl overflow-hidden group shadow-md transition-all duration-500
-                            hover:shadow-xl ${
-                              isDarkMode ? "bg-gray-800" : "bg-white"
-                            }`}
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
               >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div
-                  className={`absolute inset-0 flex items-center justify-center p-4 transition-all duration-500
-                              bg-opacity-40 group-hover:bg-opacity-80
-                              ${isDarkMode ? "bg-gray-900" : "bg-black"}`}
-                >
-                  <div className="text-center text-white">
-                    <h2 className="text-lg sm:text-xl font-semibold">
+                <div className="relative rounded-xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-2xl hover:scale-[1.03]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-[250px] object-cover transition-transform duration-500
+              group-hover:scale-105"
+                  />
+                  <div
+                    className={`absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-500
+              bg-gradient-to-t from-black/80 via-black/40 to-transparent
+              ${isDarkMode ? "bg-gray-900/80" : "bg-black/60"}
+              group-hover:bg-opacity-100`}
+                  >
+                    <h2 className="text-lg sm:text-xl font-semibold text-white">
                       {project.title}
                     </h2>
-                    <p className="text-sm sm:text-base opacity-80">
+                    <p className="text-sm sm:text-base opacity-80 text-gray-300 text-center">
                       {project.description}
                     </p>
-                    <p className="text-xs sm:text-sm mt-2 text-gray-300">
+                    <p className="text-xs sm:text-sm mt-2 text-gray-400">
                       ⏳ {project.time}
                     </p>
+
+                    {/* Button GitHub */}
+                    <button
+                      className="mt-3 px-4 py-2 text-sm sm:text-base font-semibold
+                bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg
+                hover:shadow-lg hover:scale-105 transition-all duration-300"
+                    >
+                      View on GitHub 🚀
+                    </button>
                   </div>
                 </div>
-              </div>
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>

@@ -46,7 +46,7 @@ const About = ({ isDarkMode }: Props) => {
         {/* Content Section */}
         <div className="flex-1 text-center lg:text-left">
           <p
-            className={`mb-4 mx-auto lg:mx-0 text-sm sm:text-base transition duration-300
+            className={`mb-4 mx-auto lg:mx-0 text-sm sm:text-base transition duration-300 xl:ml-10 max-w-[700px]
                         ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}
           >
             I am a fresh graduate Frontend Developer with passion for learning
@@ -72,8 +72,9 @@ const About = ({ isDarkMode }: Props) => {
                   <Image
                     src={isDarkMode ? iconDark : icon}
                     alt={title}
-                    className="w-7 sm:w-12"
+                    className="w-7 sm:w-12 transition duration-300"
                   />
+
                   <h3
                     className={`font-semibold transition duration-300 ${
                       isDarkMode ? "text-gray-300" : "text-gray-700"

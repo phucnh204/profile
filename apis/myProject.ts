@@ -10,31 +10,37 @@ export const myProject = [
     description:
       "Web Design - React Js  + Tailwind + TypeScript + Kéo thả Dnd Kit",
     image: san_pham_trello,
-    time: "01-2025 to 02-2025",
+    time: "01/2025 to 02/2025",
+    githubLink:
+      "https://github.com/phucnh204/trello-web/tree/main/fe-trello-web",
   },
   {
     title: "Đồ án tốt nghiệp - Sàn thương mại điện tử",
     description: "Web Design - React Js  + Tailwind",
     image: san_pham_datn,
-    time: "10-2024 to 12-2024",
+    time: "08/2024 to 12/2024",
+    githubLink: "https://github.com/phucnh204/DuAnTotNghiep_FE_Modle",
   },
 
   {
     title: "Đồ án - Chứng chỉ cửa hàng Bike Store tích hợp thánh toán online",
     description: "Java Servlet",
     image: san_pham_bike_store,
-    time: "7-2024 to 9-2024",
+    time: "7/2024 to 9/2024",
+    githubLink: "https://github.com/phucnh204/DuAnXuong_Poly_BikeStore",
   },
   {
     title: "Đồ án -Chứng chỉ kiểm thử website đồ dùng thể thao",
     description: "Web Workpress",
     image: san_pham_kiem_thu,
-    time: "1-2024 to 3-2024",
+    time: "1/2024 to 3/2024",
+    // githubLink: "lo",
   },
   {
     title: "Đồ án - Chứng chỉ quản lý quán cafe",
     description: "Java Swing",
     image: san_pham_cafe,
-    time: "10-2023 to 12-2023",
+    time: "10/2023 to 12/2023",
+    // githubLink: "https://github.com/Sakura-Coffee",
   },
 ];

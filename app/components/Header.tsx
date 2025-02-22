@@ -46,7 +46,7 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
       {/* Title */}
       <h1 className="text-3xl sm:text-5xl lg:text-[40px] font-bold">
-        Frontend Web Developer Based in 
+        Frontend Web Developer Based in Viet Nam
       </h1>
 
       {/* Description */}
