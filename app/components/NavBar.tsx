@@ -20,7 +20,7 @@ const NavBar = ({
   setIsDarkMode,
 }: //  setActiveSection,
 NavBarProps) => {
-  const [isScroll, setIsScroll] = useState(false);
+  // const [isScroll, setIsScroll] = useState(false);
   // const sideMenuRef = useRef<HTMLUListElement>(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +55,7 @@ NavBarProps) => {
       <nav
         className={`w-full max-w-screen fixed px-4 sm:px-6 md:px-8 xl:px-[8%]
    py-4 flex flex-wrap items-center justify-between z-50 overflow-hidden
-   ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""}`}
+   "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm`}
       >
         <a href="#home" className="flex items-center justify-center ">
           {/* <Image
@@ -80,7 +80,7 @@ NavBarProps) => {
         <ul
           className={`hidden md:flex items-center gap-6 lg:gap-8
     rounded-full px-12 py-3 transition duration-300 
-    ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50"}`}
+    bg-white shadow-sm bg-opacity-50`}
         >
           <li>
             <a
