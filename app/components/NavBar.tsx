@@ -28,25 +28,27 @@ NavBarProps) => {
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScroll(true);
-      } else {
-        setIsScroll(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY > 50) {
+  //       setIsScroll(true);
+  //     } else {
+  //       setIsScroll(false);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
     }
   }, [isMenuOpen]);
+
 
   return (
     <div>
@@ -55,7 +57,7 @@ NavBarProps) => {
    py-4 flex flex-wrap items-center justify-between z-50 overflow-hidden
    ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""}`}
       >
-        <a href="#top" className="flex items-center justify-center ">
+        <a href="#home" className="flex items-center justify-center ">
           {/* <Image
             src={logo}
             alt="logo"
@@ -82,7 +84,7 @@ NavBarProps) => {
         >
           <li>
             <a
-              href="#top"
+              href="#home"
               className="relative group text-gray-800 dark:text-white hover:text-blue-500 transition duration-300"
             >
               Home
@@ -140,7 +142,7 @@ NavBarProps) => {
           </button>
 
           <a
-            className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4"
+            className="hidden lg:flex items-center gap-3 px-10 py-2.5 border bg-gray-200 border-gray-500 rounded-full ml-4"
             href="#contact"
           >
             {" "}
@@ -161,11 +163,17 @@ NavBarProps) => {
         </div>
 
         {/* Mobile menu */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-30 z-[998]"
+            onClick={closeMenu}
+          />
+        )}
         <ul
-          className={`fixed top-0 bottom-0 right-0 w-64 z-50 h-screen 
-    bg-gradient-to-r from-gray-50 to-gray-100 shadow-lg rounded-l-2xl
-    transition-all duration-500 ease-in-out 
-    ${isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
+          className={`fixed top-0 bottom-0 right-0 w-64 h-screen z-[999]
+  bg-gradient-to-r from-gray-50 to-gray-100 shadow-lg rounded-l-2xl
+  transition-all duration-500 ease-in-out
+  ${isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}`}
         >
           {/* Nút đóng menu */}
           <button
@@ -182,7 +190,7 @@ NavBarProps) => {
 
           {/* Danh sách menu */}
           {[
-            { label: "Home", link: "#top" },
+            { label: "Home", link: "#home" },
             { label: "About me", link: "#about" },
             { label: "Services", link: "#services" },
             { label: "My project", link: "#myProject" },

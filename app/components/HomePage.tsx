@@ -5,7 +5,7 @@ import icon_profile from "@/assets/public/hello-icon.png";
 import icon_arrow_white from "@/assets/public/arrow-white.png";
 import icon_download from "@/assets/public/cloud-download.png";
 
-const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
+const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const data = [
     {
       profile: {
@@ -16,7 +16,8 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
   return (
     <div
-      className={`w-11/12 max-w-3xl text-center mx-auto mt-28 flex flex-col 
+      id="home"
+      className={`w-11/12 max-w-3xl text-center mx-auto mt-8 flex flex-col 
                   items-center justify-center gap-4 transition duration-300
                   ${
                     isDarkMode
@@ -24,19 +25,32 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
                       : "bg-white text-gray-900"
                   }`}
     >
+      <div
+        className="absolute top-0 left-0 w-full h-80 bg-cover bg-center shadow-xl"
+        style={{
+          backgroundImage:
+            "url('https://t4.ftcdn.net/jpg/07/26/36/71/360_F_726367125_fHjq3DcCay0zswhLlW5eYkhz7qzPPHGt.jpg')",
+          clipPath: "ellipse(100% 50% at center top)",
+        }}
+      >
+        {/* Hiệu ứng overlay để hình ảnh hài hòa hơn */}
+        <div className="w-full h-full bg-gradient-to-b from-black/40 to-transparent"></div>
+      </div>
       {/* Profile Image */}
-      <div className="relative">
-        <Image
-          src={img_profile}
-          alt="Image profile"
-          className="rounded-full w-32 h-32 object-cover shadow-lg border-4 
-                     ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}"
-        />
-        <Image
-          src={icon_profile}
-          alt="Icon hello"
-          className="absolute -top-2 -right-2 w-8 animate-bounce"
-        />
+      <div className="relative flex flex-col items-center pb-4">
+        {/* Ảnh Profile */}
+        <div className="relative mt-16">
+          <Image
+            src={img_profile}
+            alt="Profile"
+            className="rounded-full w-32 h-32 object-cover shadow-xl border-4 border-white dark:border-gray-800"
+          />
+          <Image
+            src={icon_profile}
+            alt="Hello Icon"
+            className="absolute -top-2 -right-2 w-8 animate-bounce"
+          />
+        </div>
       </div>
 
       {/* Greeting */}
@@ -96,4 +110,4 @@ const Header = ({ isDarkMode }: { isDarkMode: boolean }) => {
   );
 };
 
-export default Header;
+export default HomePage;

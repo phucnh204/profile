@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Header from "./components/Header";
 import MyProject from "./components/MyProject";
 import NavBar from "./components/NavBar";
+import HomePage from "./components/HomePage";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -34,11 +34,17 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <NavBar
-        // setActiveSection={setActiveSection}
-        isDarkMode={isDarkMode}
-        setIsDarkMode={setIsDarkMode}
-      />
+      <motion.div
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <NavBar
+          // setActiveSection={setActiveSection}
+          isDarkMode={isDarkMode}
+          setIsDarkMode={setIsDarkMode}
+        />
+      </motion.div>
 
       {/* Hiệu ứng slide-down cho Header */}
       <motion.div
@@ -46,7 +52,7 @@ export default function Home() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <Header isDarkMode={isDarkMode} />
+        <HomePage isDarkMode={isDarkMode} />
       </motion.div>
 
       {/* Hiệu ứng fade-in cho About */}
