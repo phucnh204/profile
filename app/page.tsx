@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import MyProject from "./components/MyProject";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
+import InfoButton from "./components/InfoButton";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -84,6 +85,8 @@ export default function Home() {
       >
         <Contact isDarkMode={isDarkMode} />
       </motion.div>
+
+      <InfoButton/>
     </div>
   );
 }
