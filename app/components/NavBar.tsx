@@ -20,7 +20,7 @@ const NavBar = ({
   setIsDarkMode,
 }: //  setActiveSection,
 NavBarProps) => {
-  // const [isScroll, setIsScroll] = useState(false);
+  const [isScroll] = useState(false);
   // const sideMenuRef = useRef<HTMLUListElement>(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,13 +49,12 @@ NavBarProps) => {
     }
   }, [isMenuOpen]);
 
-
   return (
     <div>
       <nav
         className={`w-full max-w-screen fixed px-4 sm:px-6 md:px-8 xl:px-[8%]
    py-4 flex flex-wrap items-center justify-between z-50 overflow-hidden
-   "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm`}
+   ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm" : ""}`}
       >
         <a href="#home" className="flex items-center justify-center ">
           {/* <Image
@@ -80,11 +79,11 @@ NavBarProps) => {
         <ul
           className={`hidden md:flex items-center gap-6 lg:gap-8
     rounded-full px-12 py-3 transition duration-300 
-    bg-white shadow-sm bg-opacity-50`}
+    ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50"}`}
         >
           <li>
             <a
-              href="#home"
+              href="#top"
               className="relative group text-gray-800 dark:text-white hover:text-blue-500 transition duration-300"
             >
               Home
@@ -142,11 +141,11 @@ NavBarProps) => {
           </button>
 
           <a
-            className="hidden lg:flex items-center gap-3 px-10 py-2.5 border bg-gray-200 border-gray-500 rounded-full ml-4"
+            className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4"
             href="#contact"
           >
             {" "}
-            Contact{" "}
+            <span className={`${isDarkMode ? 'text-white' : 'text-gray-800'}`}> Contact </span>
             <Image
               src={isDarkMode ? arrow_icon_white : arrow_icon}
               alt="arrow icon up"
@@ -190,7 +189,7 @@ NavBarProps) => {
 
           {/* Danh sách menu */}
           {[
-            { label: "Home", link: "#home" },
+            { label: "Home", link: "#top" },
             { label: "About me", link: "#about" },
             { label: "Services", link: "#services" },
             { label: "My project", link: "#myProject" },

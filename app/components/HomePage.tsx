@@ -33,7 +33,7 @@ const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
           clipPath: "ellipse(100% 50% at center top)",
         }}
       >
-        {/* Hiệu ứng overlay để hình ảnh hài hòa hơn */}
+        
         <div className="w-full h-full bg-gradient-to-b from-black/40 to-transparent"></div>
       </div>
       {/* Profile Image */}
