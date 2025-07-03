@@ -3,7 +3,7 @@ import React from "react";
 import img_profile from "@/assets/public/CVImage.jpg";
 import icon_profile from "@/assets/public/hello-icon.png";
 import icon_arrow_white from "@/assets/public/arrow-white.png";
-import icon_download from "@/assets/public/cloud-download.png";
+// import icon_download from "@/assets/public/cloud-download.png";
 
 const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const data = [
@@ -33,7 +33,6 @@ const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
           clipPath: "ellipse(100% 50% at center top)",
         }}
       >
-        
         <div className="w-full h-full bg-gradient-to-b from-black/40 to-transparent"></div>
       </div>
       {/* Profile Image */}
@@ -60,7 +59,7 @@ const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
 
       {/* Title */}
       <h1 className="text-3xl sm:text-5xl lg:text-[40px] font-bold">
-        Frontend Web Developer Based in Viet Nam
+        Frontend Web Developer
       </h1>
 
       {/* Description */}
@@ -69,11 +68,12 @@ const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
           isDarkMode ? "text-gray-300" : "text-gray-700"
         }`}
       >
-        Previously, I studied at FPT Polytechnic College. I am a frontend
-        developer from Vietnam with three months of internship experience at ISC
-        - Alta Software in Hau Giang. My passion for creating intuitive and
-        visually appealing user interfaces drives my dedication to continuous
-        learning and improvement.
+        Trước đây, tôi từng theo học tại{" "}
+        <strong>Cao đẳng FPT Polytechnic</strong>. Tốt nghiệp loại xuất sắc
+        nghành <strong>Phát triển phần mềm</strong> với GPA là{" "}
+        <strong>3.64</strong>. Niềm đam mê của tôi là tạo ra các giao diện người
+        dùng trực quan và thu hút, điều này thúc đẩy tôi không ngừng học hỏi và
+        cải thiện kỹ năng mỗi ngày.
       </p>
 
       {/* Buttons */}
@@ -93,7 +93,8 @@ const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
         </a>
 
         {/* Resume Download Button */}
-        <a
+        {/* <a
+          disabled={false}
           href="/update-resume-CV.pdf"
           download
           className={`px-10 py-3 border rounded-full flex items-center gap-2 font-semibold transition duration-300
@@ -104,8 +105,9 @@ const HomePage = ({ isDarkMode }: { isDarkMode: boolean }) => {
                      }`}
         >
           My Resume <Image src={icon_download} alt="download" className="w-4" />
-        </a>
+        </a> */}
       </div>
+     
     </div>
   );
 };

@@ -49,10 +49,10 @@ const About = ({ isDarkMode }: Props) => {
             className={`mb-4 mx-auto lg:mx-0 text-sm sm:text-base transition duration-300 xl:ml-10 max-w-[700px]
                         ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}
           >
-            I am a fresh graduate Frontend Developer with passion for learning
-            and technology. I am looking forward to participating in real
-            projects to further improve my skills and contribute to the
-            company’s growth.
+            Tôi là một lập trình viên Frontend mới tốt nghiệp, luôn khao khát
+            học hỏi và phát triển trong lĩnh vực công nghệ. Tôi mong muốn được
+            tham gia vào các dự án thực tế nhằm rèn luyện kỹ năng chuyên môn và
+            đóng góp giá trị thiết thực cho sự phát triển của doanh nghiệp.
           </p>
 
           {/* Info List */}
